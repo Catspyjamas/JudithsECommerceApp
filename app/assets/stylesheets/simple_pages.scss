@@ -1,3 +1,120 @@
 // Place all the styles related to the simple_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'bootstrap';
+
+
+/* Variables */
+
+
+$sans-serif: 'Roboto', sans-serif;
+$regular: 400;
+$light: 100;
+$bold: 900;
+
+$superlight: #e2e2e2;
+$dark: #141414;
+$primary: #a87c79;
+
+* {
+  outline: 1px solid red;
+} 
+
+
+/* Typography */
+
+
+body,
+h2,
+h4,
+h5,
+h6 {
+  font-family: $sans-serif;
+  font-weight: $regular;
+}
+
+p {
+  font-weight: $light;
+}
+
+h1,
+h3 {
+  font-weight: $bold;
+}
+
+main {
+  padding-left: 5vw;
+  padding-right: 5vw;
+  margin: auto;
+}
+
+footer {
+  padding-left: 5vw;
+  padding-right: 5vw;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  background-color: $dark;
+  color: $superlight;
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.first-container {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Customizing Bootstrap */
+
+.sticky-top {
+  z-index: 1;
+}
+
+.img-container-fluid {
+  margin-top: -60px;
+  margin-left: -5vw;
+  margin-right: -5vw;
+}
+
+.img-fluid {
+  max-width: 100%;
+}
+
+.bg-dark {
+  background-color: rgba( $dark, 0.3 ) !important;
+}
+
+button:focus {
+  outline: 1px solid $primary;
+}
+
+/*Navigation*/
+
+.navigation {
+  padding-left: 5vw;
+  padding-right: 5vw;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.2em;
+}
+
+.navbar-collapse {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-brand {
+  margin-right: 2rem;
+  margin-left: 2rem;
+}
+
+.navbar-toggler {
+  border: none;
+}
