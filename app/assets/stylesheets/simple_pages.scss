@@ -15,6 +15,7 @@ $bold: 900;
 $superlight: #e2e2e2;
 $dark: #141414;
 $primary: #a87c79;
+$linkcolor: #323131;
 
 
 /* Typography */
@@ -56,6 +57,17 @@ footer {
   margin-top: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+a {
+  color: $linkcolor;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $primary;
+  text-decoration: none;
+  color: lighten($linkcolor, 10%)
 }
 
 .first-container {
