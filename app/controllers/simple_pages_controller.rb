@@ -5,6 +5,7 @@ class SimplePagesController < ApplicationController
   def landing_page
     @featured_product = Product.first
     @product_aim = 3
-    @products = Product.limit(@product_aim)
+    @random_ids = Product.ids.sort_by { rand }.slice(0, @product_aim)
+    @products = Product.where(:id => @random_ids)
   end
 end

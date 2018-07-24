@@ -4,6 +4,10 @@
 /* Remove Bootstrap Styles*/
 @import 'simple_pages';
 
+* {
+  outline: 1px solid red;
+}
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
@@ -24,4 +28,24 @@
 
 body {
   background-color: $superlight !important;
+}
+
+
+.product-box {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  background-color: white;
+}
+
+
+.column {
+  flex: 1 0 60%;
+  padding: 10px;
+}
+
+@media (min-width: 720px) {
+  .product-box .column:first-child {
+    flex: 0 0 40%;
+  }
 }

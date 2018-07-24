@@ -1,29 +1,28 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-
-<p>
-  <strong>Image url:</strong>
-  <%= @product.image_url %>
-</p>
-
-<p>
-  <strong>Toxicity:</strong>
-  <%= @product.toxicity %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<div class = "min-container">
+  <div class = "product-box">
+      <div class ="column">
+          <%= image_tag(@product.image_url, class: "img-fluid product-prev-img") %>
+      </div>
+      <div class = "column">
+        <h1>
+          <%= @product.name %>
+        </h1>
+        <p>
+          <%= @product.description %>
+        </p>
+        <p>
+          <strong>Toxicity:</strong>
+          <%= @product.toxicity %>
+        </p>
+        <p>
+          <strong>Price:</strong>
+          <%= @product.price %>
+        </p>
+      </div>
+      <div class= "column">
+        <p id="notice"><%= notice %></p>
+        <%= link_to 'Edit', edit_product_path(@product) %> |
+        <%= link_to 'Back', products_path %>
+      </div>
+  </div>
+</div>

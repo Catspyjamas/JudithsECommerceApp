@@ -69,12 +69,6 @@ a:hover {
   color: lighten($linkcolor, 10%)
 }
 
-.first-container {
-  height: 60vh;
-  display: flex;
-  align-items: center;
-}
-
 /* Customizing Bootstrap */
 
 .sticky-top {
@@ -99,6 +93,7 @@ button:focus {
   outline: 1px solid $primary;
 }
 
+
 /*Navigation*/
 
 .navigation {
@@ -106,7 +101,7 @@ button:focus {
   padding-right: 5vw;
   margin: auto;
   display: flex;
-  justify-content: center;
+  justify-content:flex-start;
   text-transform: uppercase;
   font-size: 0.8em;
   letter-spacing: 0.2em;
@@ -114,14 +109,20 @@ button:focus {
 
 .navbar-collapse {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .navbar-brand {
   margin-right: 2rem;
-  margin-left: 2rem;
 }
 
 .navbar-toggler {
   border: none;
+}
+
+.min-container {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
