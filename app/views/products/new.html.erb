@@ -1,5 +1,9 @@
-<h1>New Product</h1>
-
-<%= render 'form', product: @product %>
-
-<%= link_to 'Back', products_path %>
+  <div class="content-box skew first-box">
+    <h1>Create a new product.</h1>
+  
+    <div class="unskew">
+    <i class="icon ion-md-heart"></i>
+      <%= render 'form', product: @product %>
+      <%= link_to 'Go back', products_path %>
+    </div>
+   </div>

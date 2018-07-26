@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'bootstrap';
+@import "ionicons";
 
 
 /* Variables */
@@ -11,12 +12,30 @@ $sans-serif: 'Roboto', sans-serif;
 $regular: 400;
 $light: 100;
 $bold: 900;
+$skew-padding: 40px;
+$skew: 2deg;
 
 $superlight: #e2e2e2;
 $dark: #141414;
 $primary: #a87c79;
 $linkcolor: #323131;
 
+/* Dynamically darken Content */
+
+@mixin backgrounds($c, $y) {
+  background: $c;
+  @for $i from 1 through $y {
+    $k: 8%;
+    $j: $i - 1;
+
+    @if $i == 1 {
+      &:nth-child(#{$i}) { background: $c; }
+    }
+    @else {
+      &:nth-child(#{$i}) { background: darken($c, ($k * $j)); }
+    }
+  }
+}
 
 /* Typography */
 
@@ -39,23 +58,90 @@ h3 {
   font-weight: $bold;
 }
 
+h1 {
+  transform: rotate(-$skew) skewY($skew);
+  margin-top: 0;
+}
+
+/* Diagonal Effect */
+
+.skew {
+  transform: skewY(-$skew);
+}
+
+.unskew {
+  transform: skewY($skew);
+  padding-top: $skew-padding;
+  padding-bottom: $skew-padding;
+}
+
+.unskew-image-box {
+  transform: skewY($skew);
+}
+
+.unskew-image-box img {
+  width: 100%;
+  object-fit: cover;
+  max-height: 50vh;
+  margin-bottom: -20px;
+
+}
+
+
+.content-box {
+   @include backgrounds($superlight, 10); 
+   width: 100%;
+   min-height: 300px;
+   padding-left: 5vw;
+   padding-right: 5vw;
+}
+
+ /*General*/
+
+body {
+  position:relative;
+}
+
 main {
-  padding-left: 5vw;
-  padding-right: 5vw;
   margin: auto;
 }
 
+
 footer {
+  position: relative;
+  background-color: $dark;
+  color: $superlight;
+}
+
+footer h1 {
+  margin-left: 5vw;
+}
+
+.visually-hidden { /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+  position: absolute !important;
+  height: 1px; width: 1px; 
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+
+
+.footer-hidden {
+  position: absolute;
+  width: 100%;
+  height: $skew-padding * 2;
+  bottom: 0;
+  margin-bottom: -$skew-padding;
+  z-index: 2;
+  background-color: $dark;
+}
+
+footer .unskew {
   padding-left: 5vw;
   padding-right: 5vw;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));  grid-gap: 20px;
-  background-color: $dark;
-  color: $superlight;
-  margin-top: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
 }
 
 a {
@@ -68,6 +154,15 @@ a:hover {
   text-decoration: none;
   color: lighten($linkcolor, 10%)
 }
+
+
+.min-container {
+  min-height: 80vh;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
 
 /* Customizing Bootstrap */
 
@@ -86,43 +181,125 @@ a:hover {
 }
 
 .bg-dark {
-  background-color: rgba( $dark, 0.3 ) !important;
+  background-color: rgba( $dark, 0.9 ) !important;
 }
 
 button:focus {
   outline: 1px solid $primary;
 }
 
+.product-form label {
+  display: block;
+}
+
+.row,
+.form-row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.sticky-top {
+  position: absolute;
+  width: 100vw;
+  top: -$skew-padding;
+}
+
+label {
+  margin-bottom: 0;
+}
 
 /*Navigation*/
+
+
+nav h1 {
+  transform: rotate(-$skew);
+  margin: 0;
+}
+
+nav .unskew {
+  padding-top: $skew-padding;
+  padding-bottom: 5px;
+  width:100%
+}
+
+nav ul {
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.2em;
+  margin-left: auto;
+}
 
 .navigation {
   padding-left: 5vw;
   padding-right: 5vw;
-  margin: auto;
-  display: flex;
-  justify-content:flex-start;
-  text-transform: uppercase;
-  font-size: 0.8em;
-  letter-spacing: 0.2em;
 }
+
 
 .navbar-collapse {
   display: flex;
   justify-content: flex-start;
 }
 
-.navbar-brand {
-  margin-right: 2rem;
-}
 
 .navbar-toggler {
   border: none;
 }
 
-.min-container {
-  min-height: 60vh;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+.search-form {
+  position: relative;
 }
+
+.search-form .submit-icon {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.search-form input[type=submit] {
+  display: none;
+}
+
+@media (max-width: 990px) {
+  #navbarNav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  nav ul {
+    margin-left: 0;
+  }
+  .search-form {
+    align-self: flex-end;
+  }
+
+}
+
+/* Box-Styling */
+
+.first-box {
+  padding-top: 80px;
+}
+
+.box-area {
+  flex: 1 0 60%;
+  padding: 10px;
+}
+
+@media (min-width: 720px) {
+  .box-area:first-child {
+    flex: 0 0 40%;
+  }
+}
+
+.form-row,
+.form-group {
+  min-width: 50%;
+}
+ 
+.form-group textarea,
+.form-group input {
+  width: 100%;
+}
+

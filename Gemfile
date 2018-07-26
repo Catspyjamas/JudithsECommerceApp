@@ -22,6 +22,10 @@ gem 'jquery-rails'
 #Use bootstrap
 gem 'bootstrap'
 
+#Ionicons
+gem "font-ionicons-rails", git: 'https://github.com/ricardoemerson/font-ionicons-rails.git'
+
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

@@ -1,6 +1,11 @@
-<h1>Editing Product</h1>
-
-<%= render 'form', product: @product %>
-
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+<div class="content-box skew first-box">
+  <h1>Editing Product</h1>
+  <div class = "unskew">
+    <div class="box-area">
+      <%= link_to 'Go back', products_path %>
+    </div>
+    <div>
+      <%= render 'form', product: @product %>
+      <%= link_to 'Show', @product %> 
+  </div>
+</div>

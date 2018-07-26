@@ -1,7 +1,7 @@
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <% (1..@product_aim).each do |carousel_i| %>
-    <li data-target="#carouselExampleIndicators" data-slide-to="<%=carousel_i %>" class=<%=" active" if carousel_i == 1 %>>
+    <li data-target="#carouselExampleIndicators" data-slide-to="<%= carousel_i %>" class=<%=" active" if carousel_i == 1 %>>
     </li>
     <% end %>
   </ol>

@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/ricardoemerson/font-ionicons-rails.git
+  revision: 172d7e3a8113969119f1016c68e055b46668956a
+  specs:
+    font-ionicons-rails (2.0.1.5)
+      railties (>= 3.2, < 6.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -184,6 +191,7 @@ DEPENDENCIES
   bootstrap
   byebug
   coffee-rails (~> 4.2)
+  font-ionicons-rails!
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)

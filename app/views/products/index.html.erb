@@ -1,12 +1,13 @@
-<div class="min-container">
-  <p id="notice"><%= notice %></p>
-
+  <div class="content-box skew first-box">
   <h1>Products</h1>
-    <div class="product-grid">
-      <% @products.each do |product| %>
-        <%= render partial: 'product', locals: {product: product} %>
-      <% end %>
-    </div>
+  <div class = "unskew">
+    <p id="notice"><%= notice %></p>
+      <div class="product-grid">
+        <% @products.each do |product| %>
+          <%= render partial: 'product', locals: {product: product} %>
+        <% end %>
+      </div>
 
-  <%= link_to 'New Product', new_product_path %>
+    <%= link_to 'New Product', new_product_path %>
+  </div>
 </div>
