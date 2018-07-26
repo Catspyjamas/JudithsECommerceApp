@@ -211,12 +211,27 @@ label {
   margin-bottom: 0;
 }
 
+.form-control:focus {
+  border-color: $primary;
+  box-shadow: 0 0 0 0.2rem rgba(168, 124, 121, 0.25);
+}
+
 /*Navigation*/
 
 
 nav h1 {
   transform: rotate(-$skew);
   margin: 0;
+}
+
+nav img {
+  width: 50px;
+}
+
+.navbar-brand {
+  display: block;
+  transform: translateY(20%);
+  align-self: center;
 }
 
 nav .unskew {
@@ -236,7 +251,6 @@ nav ul {
   padding-left: 5vw;
   padding-right: 5vw;
 }
-
 
 .navbar-collapse {
   display: flex;
@@ -278,6 +292,12 @@ nav ul {
   }
   .search-form {
     align-self: flex-end;
+    order: -1;
+  }
+
+  .navbar-brand {
+    margin-right: auto;
+    transform: translateY(-12px);
   }
 
 }
