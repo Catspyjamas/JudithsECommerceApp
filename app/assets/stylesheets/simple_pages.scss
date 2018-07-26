@@ -37,6 +37,7 @@ $linkcolor: #323131;
   }
 }
 
+
 /* Typography */
 
 
@@ -64,7 +65,9 @@ h1 {
   text-transform: lowercase;
 }
 
+
 /* Diagonal Effect */
+
 
 .skew {
   transform: skewY(-$skew);
@@ -87,7 +90,6 @@ h1 {
   margin-bottom: -20px;
 
 }
-
 
 .content-box {
    @include backgrounds($superlight, 10); 
@@ -241,7 +243,6 @@ nav ul {
   justify-content: flex-start;
 }
 
-
 .navbar-toggler {
   border: none;
 }
@@ -261,6 +262,10 @@ nav ul {
 
 .search-form input[type=submit] {
   display: none;
+}
+
+.navigation-items {
+  margin-bottom: 5px;
 }
 
 @media (max-width: 990px) {
