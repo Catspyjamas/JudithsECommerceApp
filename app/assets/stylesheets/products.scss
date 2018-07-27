@@ -16,14 +16,19 @@
 
 .product-card {
   background-color: white;
+  position: relative;
 }
 
 .card-content {
   padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .additional-options {
-  margin-top: auto;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
 
 body {
@@ -38,3 +43,9 @@ body {
   background-color: white;
 }
 
+.product-link {
+  font-weight: $bold;
+  font-size: 1.2em;
+  letter-spacing: 0;
+  text-transform: capitalize;
+}

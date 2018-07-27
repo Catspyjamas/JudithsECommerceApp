@@ -92,6 +92,9 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  # Devise: Any dynamic links that show up inside emails from development environment generate the right URLs
+  config.action_mailer.default_url_options = { host: ‘mushrooming.herokuapp.com’ }.
+
   #Sendgrid Addon Config
   ActionMailer::Base.smtp_settings = {
     address: 'smtp.sendgrid.net',

@@ -41,17 +41,19 @@ $linkcolor: #323131;
 /* Typography */
 
 
-body,
+body, 
+p
+ {
+  font-family: $sans-serif;
+  font-weight: $light;
+  font-size: 1rem;
+}
+
 h2,
 h4,
 h5,
 h6 {
-  font-family: $sans-serif;
   font-weight: $regular;
-}
-
-p {
-  font-weight: $light;
 }
 
 h1,
@@ -65,6 +67,28 @@ h1 {
   text-transform: lowercase;
 }
 
+label {
+  font-size: 0.9rem;
+}
+
+input[type="button" i], 
+input[type="submit" i], 
+input[type="reset" i], 
+input[type="file" i]::-webkit-file-upload-button, 
+button,
+a {
+  border: none;
+  color: $dark;
+  font-weight: $regular;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+}
+
+input[type=submit] {
+  padding: 0.5em 0.7em;
+}
 
 /* Diagonal Effect */
 
@@ -88,7 +112,10 @@ h1 {
   object-fit: cover;
   max-height: 50vh;
   margin-bottom: -20px;
+}
 
+.first-box {
+  padding-top: 80px;
 }
 
 .content-box {
@@ -127,8 +154,6 @@ footer h1 {
   clip: rect(1px, 1px, 1px, 1px);
 }
 
-
-
 .footer-hidden {
   position: absolute;
   width: 100%;
@@ -166,6 +191,32 @@ a:hover {
   flex-wrap: wrap;
 }
 
+.field,
+form {
+  margin-bottom: 1rem;
+}
+
+.form-row,
+.form-group {
+  min-width: 30%;
+  padding-right: 10px;
+}
+ 
+.form-group textarea,
+.form-group input,
+.text-box {
+  width: 100%;
+}
+
+input {
+  border-style: none !important;
+  padding: 2px;
+}
+
+.form-control:focus {
+  border-color: $primary;
+  box-shadow: 0 0 0 0.2rem rgba(168, 124, 121, 0.25);
+}
 
 /* Customizing Bootstrap */
 
@@ -202,7 +253,7 @@ button:focus {
 }
 
 .sticky-top {
-  position: absolute;
+  position:fixed;
   width: 100vw;
   top: -$skew-padding;
 }
@@ -211,18 +262,16 @@ label {
   margin-bottom: 0;
 }
 
-.form-control:focus {
-  border-color: $primary;
-  box-shadow: 0 0 0 0.2rem rgba(168, 124, 121, 0.25);
+
+:focus {
+  outline: $primary auto 1px;
+  outline-color: $primary;
+  outline-width: 1px;
 }
+
 
 /*Navigation*/
 
-
-nav h1 {
-  transform: rotate(-$skew);
-  margin: 0;
-}
 
 nav img {
   width: 50px;
@@ -230,8 +279,10 @@ nav img {
 
 .navbar-brand {
   display: block;
-  transform: translateY(20%);
   align-self: center;
+  margin-right: auto;
+  margin-right: auto;
+  transform: translateY(20%);
 }
 
 nav .unskew {
@@ -244,7 +295,10 @@ nav ul {
   text-transform: uppercase;
   font-size: 0.8em;
   letter-spacing: 0.2em;
-  margin-left: auto;
+}
+
+nav form {
+  margin-bottom: 0;
 }
 
 .navigation {
@@ -254,7 +308,7 @@ nav ul {
 
 .navbar-collapse {
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
 }
 
 .navbar-toggler {
@@ -266,7 +320,7 @@ nav ul {
 }
 
 .search-form .submit-icon {
-  position: absolute;
+  position:absolute;
   right: 5px;
   top: 50%;
   transform: translateY(-50%);
@@ -295,18 +349,11 @@ nav ul {
     order: -1;
   }
 
-  .navbar-brand {
-    margin-right: auto;
-    transform: translateY(-12px);
-  }
 
 }
 
 /* Box-Styling */
 
-.first-box {
-  padding-top: 80px;
-}
 
 .box-area {
   flex: 1 0 60%;
@@ -317,16 +364,5 @@ nav ul {
   .box-area:first-child {
     flex: 0 0 40%;
   }
-}
-
-.form-row,
-.form-group {
-  min-width: 50%;
-}
- 
-.form-group textarea,
-.form-group input,
-.text-box {
-  width: 100%;
 }
 

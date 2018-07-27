@@ -52,6 +52,11 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+  # Devise: Any dynamic links that show up inside emails from development environment generate the right URLs
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  default_url_options
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 

@@ -37,12 +37,25 @@
               <%= form.submit '' %>
             </label>
           <% end %>
+          <ul class="navbar-nav">
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to('Logout', destroy_user_session_path, method: :delete, class:"nav-link")%>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to('Login', new_user_session_path, class:"nav-link")%>
+              </li>
+            <% end %>
+          </ul>
         </div>
         
       </div>
     </nav>
     <main>
       <%= yield %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
     </main>
     <footer class="skew">
       <h1>Contact</h1>
