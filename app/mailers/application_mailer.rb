@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'post@mushrooming.com'
+  default from: 'info@mushrooming.com'
   layout 'mailer'
 end
