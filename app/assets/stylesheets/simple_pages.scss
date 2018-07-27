@@ -17,7 +17,7 @@ $skew: 2deg;
 
 $superlight: #e2e2e2;
 $dark: #141414;
-$primary: #a87c79;
+$primary: #e5cbc9;
 $linkcolor: #323131;
 
 /* Dynamically darken Content */
@@ -183,7 +183,6 @@ a:hover {
   color: lighten($linkcolor, 10%)
 }
 
-
 .min-container {
   min-height: 80vh;
   display: flex;
@@ -267,6 +266,12 @@ label {
   outline: $primary auto 1px;
   outline-color: $primary;
   outline-width: 1px;
+}
+
+.alert-primary {
+  color: $dark;
+  background-color: $primary;
+  border: none;
 }
 
 
@@ -353,6 +358,7 @@ nav form {
 }
 
 /* Box-Styling */
+
 
 
 .box-area {

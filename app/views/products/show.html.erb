@@ -8,6 +8,12 @@
       <%= @product.name %>
     </h1>
     <div class = "unskew">
+      <% if notice %>
+        <p id="notice" class="alert alert-primary"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p id="alert" class="alert alert-primary"><%= alert %></p>
+      <% end %>
       <div class = "box-area">
         <p>
           <%= @product.description %>

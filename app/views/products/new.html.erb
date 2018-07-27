@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
   <div class="content-box skew first-box">
     <h1>Create a new product.</h1>
   
@@ -7,3 +8,20 @@
       <%= link_to 'Go back', products_path %>
     </div>
    </div>
+=======
+<div class="content-box skew first-box">
+  <h1>Create a new product.</h1>
+
+  <div class="unskew">
+    <% if notice %>
+      <p id="notice" class="alert alert-primary"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p id="alert" class="alert alert-primary"><%= alert %></p>
+    <% end %>
+  <i class="icon ion-md-heart"></i>
+    <%= render 'form', product: @product %>
+    <%= link_to 'Go back', products_path %>
+  </div>
+</div>
+>>>>>>> Stashed changes
