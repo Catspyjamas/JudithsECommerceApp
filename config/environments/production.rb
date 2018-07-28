@@ -93,7 +93,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Devise: Any dynamic links that show up inside emails from development environment generate the right URLs
-  config.action_mailer.default_url_options = { host: ‘mushrooming.herokuapp.com’ }.
+  config.action_mailer.default_url_options = { host: "mushrooming.herokuapp.com" }
 
   #Sendgrid Addon Config
   ActionMailer::Base.smtp_settings = {
@@ -105,4 +105,5 @@ Rails.application.configure do
     domain: 'heroku.com',
     enable_starttls_auto: true
   }
+
 end
