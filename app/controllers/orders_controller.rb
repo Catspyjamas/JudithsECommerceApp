@@ -1,11 +1,11 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
-    before_action :authenticate_user!
     @orders = Order.includes(:product).all
   end
 
   def show
-    before_action :authenticate_user!
     @order = Order.find(params[:id])
   end
 
