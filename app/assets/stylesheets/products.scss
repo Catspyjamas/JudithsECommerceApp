@@ -49,3 +49,25 @@ body {
   letter-spacing: 0;
   text-transform: capitalize;
 }
+
+
+.tab-content {
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: none;  
+  border: 2px solid transparent !important;
+}
+
+.nav-tabs .nav-link,
+.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border: 2px solid transparent !important;
+}
+
+.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover  {
+  color: $primary-dark !important;
+}

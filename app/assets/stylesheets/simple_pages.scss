@@ -18,7 +18,7 @@ $skew: 2deg;
 $superlight: #e2e2e2;
 $dark: #141414;
 $primary: #e5cbc9;
-$primary-dark: #665554;
+$primary-dark: #927977;
 $linkcolor: #323131;
 
 /* Dynamically darken Content */
@@ -26,7 +26,7 @@ $linkcolor: #323131;
 @mixin backgrounds($c, $y) {
   background: $c;
   @for $i from 1 through $y {
-    $k: 8%;
+    $k: 5%;
     $j: $i - 1;
 
     @if $i == 1 {
@@ -121,7 +121,7 @@ input[type=submit] {
 }
 
 .content-box {
-   @include backgrounds($superlight, 10); 
+   @include backgrounds($superlight, 5); 
    width: 100%;
    min-height: 300px;
    padding-left: 5vw;
@@ -410,3 +410,6 @@ nav form {
   }
 }
 
+.box-section {
+  padding: 5px 0;
+}
