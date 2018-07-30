@@ -18,6 +18,7 @@ $skew: 2deg;
 $superlight: #e2e2e2;
 $dark: #141414;
 $primary: #e5cbc9;
+$primary-dark: #665554;
 $linkcolor: #323131;
 
 /* Dynamically darken Content */
@@ -90,6 +91,7 @@ input[type=submit] {
   padding: 0.5em 0.7em;
 }
 
+
 /* Diagonal Effect */
 
 
@@ -141,6 +143,7 @@ footer {
   position: relative;
   background-color: $dark;
   color: $superlight;
+  box-shadow: 0px 500px 0px 500px $dark;
 }
 
 footer h1 {
@@ -217,7 +220,9 @@ input {
   box-shadow: 0 0 0 0.2rem rgba(168, 124, 121, 0.25);
 }
 
+
 /* Customizing Bootstrap */
+
 
 .sticky-top {
   z-index: 1;
@@ -290,6 +295,21 @@ nav img {
   transform: translateY(20%);
 }
 
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.navbar-dark .navbar-nav .show > .nav-link,
+.navbar-dark .navbar-nav .active > .nav-link,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: rgba(255, 255, 255, 0.95);
+}
+
 nav .unskew {
   padding-top: $skew-padding;
   padding-bottom: 5px;
@@ -305,6 +325,20 @@ nav ul {
 nav form {
   margin-bottom: 0;
 }
+
+
+.dropdown-menu {
+  display: none;
+  background: $primary-dark;
+  border: none;
+  padding: 0 5px;
+  border-radius: unset;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
 
 .navigation {
   padding-left: 5vw;
@@ -352,6 +386,10 @@ nav form {
   .search-form {
     align-self: flex-end;
     order: -1;
+  }
+
+  .navbar-brand {
+    transform: translateY(-15%);
   }
 
 
