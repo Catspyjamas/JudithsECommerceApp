@@ -199,7 +199,8 @@ a:hover {
 /* Forms */
 
 .product-form,
-.comment-form {
+.comment-form,
+.user-form {
   padding-right: 0;
   padding-left: 0;
 }
@@ -346,6 +347,7 @@ nav form {
 .dropdown-menu {
   display: none;
   background: $primary-dark;
+  font-size: inherit;
   border: none;
   padding: 0 5px;
   border-radius: unset;
