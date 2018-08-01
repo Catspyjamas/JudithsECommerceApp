@@ -30,6 +30,9 @@
           <p><%= @product.description %></p>
           <hr>
           <strong><%= @product.price %></strong>
+          <hr>
+          <h6>Average rating</h6>
+          <div class="rated" data-score="<%= @product.average_rating %>"></div> 
           <div class="additional-options">
             <%= link_to 'Edit', edit_product_path(@product) %>
             <%= link_to 'Back', products_path %>
@@ -40,13 +43,30 @@
           <%= @product.toxicity %>
         </div>
         <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="contact-tab">
-            <h6>Average rating</h6>
-            <hr>
-            <h6>Comment with the highest rating</h6>
-            <%= @product.highest_rating_comment %>
-            <hr>
-            <h6>Comment with the lowest rating</h6>
-            <%= @product.lowest_rating_comment %>
+          <h6>Write a new comment</h6>
+          <%= render 'new_comment' %>
+          <hr>
+          <h6>Comment with the highest rating</h6>
+          <p><%=  @product.highest_rating_comment.user.first_name %> 
+            <small><em><%= "#{time_ago_in_words( @product.highest_rating_comment.created_at)} ago" %></em></small>
+          </p>
+          <div class="rated" data-score="<%=  @product.highest_rating_comment.rating %>"></div>
+          <p>
+            <%=  @product.highest_rating_comment.body %>
+          </p>
+          <hr>
+          <h6>Comment with the lowest rating</h6>
+          <p>
+            <%= @product.lowest_rating_comment.user.first_name %> 
+            <small><em><%= "#{time_ago_in_words( @product.lowest_rating_comment.created_at)} ago" %></em></small>
+          </p>
+          <div class="rated" data-score="<%=  @product.lowest_rating_comment.rating %>"></div>
+          <p>
+            <%=  @product.lowest_rating_comment.body %>
+          </p>
+          <hr>
+          <h6>All comments</h6>
+          <%= render 'comments' %>
         </div>
   </div>
 

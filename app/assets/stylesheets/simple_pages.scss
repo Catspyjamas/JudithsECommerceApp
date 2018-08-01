@@ -76,10 +76,11 @@ input[type="button" i],
 input[type="submit" i], 
 input[type="reset" i], 
 input[type="file" i]::-webkit-file-upload-button, 
-button,
-a {
+button
+ {
   border: none;
-  color: $dark;
+  background-color: $dark;
+  color: $superlight;
   font-weight: $regular;
   text-transform: uppercase;
   font-size: 0.8rem;
@@ -193,15 +194,30 @@ a:hover {
   flex-wrap: wrap;
 }
 
+
+
+/* Forms */
+
+.product-form,
+.comment-form {
+  padding-right: 0;
+  padding-left: 0;
+}
+
 .field,
 form {
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .form-row,
 .form-group {
-  min-width: 30%;
-  padding-right: 10px;
+  width: 100%;
+  padding-right: 0.8rem;
 }
  
 .form-group textarea,

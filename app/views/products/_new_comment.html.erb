@@ -1,0 +1,20 @@
+<% if signed_in? %>
+  <%= form_for([@product, @product.comments.build], class:"comment-form") do |f| %>
+    <div class="form-row">
+      <div class="form-group">
+        <%= f.label :rating, "How many stars would you give this mushroom?" %>
+        <div class="rating"></div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <%= f.label :body, "Your Comment" %>
+        <%= f.text_area :body %>
+      </div>
+    </div>
+
+    <div class="actions">  
+      <%= f.submit "Submit" %>
+    </div>
+  <% end %>
+<% end %>

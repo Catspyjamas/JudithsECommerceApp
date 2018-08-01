@@ -11,6 +11,10 @@ class Product < ApplicationRecord
     comments.rating_desc.last
   end
 
+  def average_rating
+    comments.average(:rating).to_f
+  end
+
   if ENV['RAILS_ENV'] == "development" then
     def self.search(search_term)
       Product.where("name LIKE ?", "%#{search_term}%")

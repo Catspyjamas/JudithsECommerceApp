@@ -8,8 +8,9 @@
     <% if alert %>
       <p id="alert" class="alert alert-primary"><%= alert %></p>
     <% end %>
-  <i class="icon ion-md-heart"></i>
     <%= render 'form', product: @product %>
-    <%= link_to 'Go back', products_path %>
+    <div class="box-area">
+      <%= link_to 'Go back', products_path %>
+    </div>
   </div>
 </div>

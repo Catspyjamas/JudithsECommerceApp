@@ -7,11 +7,10 @@
     <% if alert %>
       <p id="alert" class="alert alert-primary"><%= alert %></p>
     <% end %>
+    <div>
+      <%= render 'form', product: @product %>
     <div class="box-area">
       <%= link_to 'Go back', products_path %>
     </div>
-    <div>
-      <%= render 'form', product: @product %>
-      <%= link_to 'Show', @product %> 
   </div>
 </div>
