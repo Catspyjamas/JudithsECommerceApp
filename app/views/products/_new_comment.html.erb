@@ -1,8 +1,8 @@
 <% if signed_in? %>
   <%= form_for([@product, @product.comments.build], class:"comment-form") do |f| %>
+    <h5>Write a new comment</h5>
     <div class="form-row">
       <div class="form-group">
-      <h6>Write a new comment</h6>
         <%= f.label :rating, "How many stars would you give this mushroom?" %>
         <div class="rating"></div>
       </div>

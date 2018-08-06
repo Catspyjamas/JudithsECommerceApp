@@ -15,7 +15,7 @@ $bold: 900;
 $skew-padding: 40px;
 $skew: 2deg;
 
-$superlight: #e2e2e2;
+$superlight: #f3f3f3;
 $dark: #141414;
 $primary: #e5cbc9;
 $primary-dark: #927977;
@@ -52,9 +52,9 @@ p
 
 h2,
 h4,
-h5,
 h6 {
   font-weight: $regular;
+  margin-bottom: 0.1em;
 }
 
 h1,
@@ -68,8 +68,19 @@ h1 {
   text-transform: lowercase;
 }
 
+h5 {
+  font-size: 1.4em;
+  margin-bottom: 0.1em;
+  font-weight: $light;
+}
+
+h6{
+  font-size: 1em;
+}
+
 label {
   font-size: 0.9rem;
+  font-weight: $regular;
 }
 
 input[type="button" i], 
@@ -92,6 +103,16 @@ input[type=submit] {
   padding: 0.5em 0.7em;
 }
 
+
+hr {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+strong {
+ font-weight: $bold;
+ font-size: 1.8em;
+}
 
 /* Diagonal Effect */
 
@@ -139,6 +160,11 @@ main {
   margin: auto;
 }
 
+.info-section {
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+}
+
 
 footer {
   position: relative;
@@ -179,12 +205,21 @@ footer .unskew {
 a {
   color: $linkcolor;
   text-decoration: none;
+  text-transform: uppercase;
+  font-weight: $light;
+  letter-spacing: 0.1em;
+  font-size: 0.95em;
 }
 
 a:hover {
   color: $primary;
   text-decoration: none;
   color: lighten($linkcolor, 10%)
+}
+
+em {
+  font-style: unset;
+  font-weight: $regular;
 }
 
 .min-container {
@@ -219,12 +254,17 @@ form {
 .form-group {
   width: 100%;
   padding-right: 0.8rem;
+  margin-bottom: 0;
+  margin-top: 0.4em;
 }
  
 .form-group textarea,
-.form-group input,
-.text-box {
+.form-group input {
   width: 100%;
+  border-style: none !important;
+  font-weight: $light;
+  color: $superlight;
+  font-size: 0.9rem;
 }
 
 input {
@@ -237,6 +277,9 @@ input {
   box-shadow: 0 0 0 0.2rem rgba(168, 124, 121, 0.25);
 }
 
+input[type=submit] {
+  margin-top: 1em;
+}
 
 /* Customizing Bootstrap */
 
@@ -335,8 +378,7 @@ nav .unskew {
 
 nav ul {
   text-transform: uppercase;
-  font-size: 0.8em;
-  letter-spacing: 0.2em;
+  font-size: 0.9em;
 }
 
 nav form {

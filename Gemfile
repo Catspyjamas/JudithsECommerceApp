@@ -49,6 +49,9 @@ gem 'devise'
 # Use CanCanCan
 gem 'cancancan', '~> 2.0'
 
+## Gemfile for Rails 3+, Sinatra, or Merb
+gem 'will_paginate', '~> 3.1.1'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -72,6 +75,8 @@ end
 group :production do
   gem 'pg'
 end
+
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
