@@ -3,9 +3,14 @@
             <h6>
                 <%= comment.user.first_name %> 
                 <small><em><%= "#{time_ago_in_words(comment.created_at)} ago" %></em></small>
+                <% if signed_in? && (current_user.admin? || comment.user_id == current_user.id) %>
+                    <%= link_to ('<ion-icon name="close"></ion-icon>').html_safe, product_comment_path(comment.product, comment), method: :delete, data: {confirm: "Are you sure?"}%>
+                <% end %>
+                
             </h6>
             <div class="rated" data-score="<%= comment.rating %>"></div>
-            <p><%= comment.body %></p>
+            <p><%= comment.body %></br>
+</p>
     <% end %>
     <%= will_paginate @comments %>
 </div>
