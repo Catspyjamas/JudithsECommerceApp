@@ -5,8 +5,11 @@ class RegistrationsController < Devise::RegistrationsController
     super
     if @user.persisted?
       UserMailer.welcome(@user).deliver_now
-      redirect_to root
     end
+  end
+
+  def after_sign_up_path_for(resource)
+    root
   end
 
   private
