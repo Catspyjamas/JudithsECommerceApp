@@ -9,7 +9,11 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def after_sign_up_path_for(resource)
-    root
+    "/products"
+  end
+
+  def after_inactive_sign_up_path_for(resource)
+    "/products"
   end
 
   private
