@@ -5,8 +5,8 @@ class RegistrationsController < Devise::RegistrationsController
     super
     if @user.persisted?
       UserMailer.welcome(@user).deliver_now
+      redirect_to root
     end
-    redirect_to root
   end
 
   private
