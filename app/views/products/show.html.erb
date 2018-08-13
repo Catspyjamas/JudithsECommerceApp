@@ -34,8 +34,13 @@
           <h5>How toxic is this mushroom?</h5>
           <%= @product.toxicity %>
           <hr>
+          <%= form_with(url: '/payments/create') do |form| %>
+          <%= render partial: "devise/shared/stripe_checkout_button" %>
+          <% end %>
+          <hr>
         </div>
-
+          
+        
         <div id="product-reviews">
           <%= render 'new_comment' %>
           <hr>
@@ -71,6 +76,7 @@
           <%= link_to 'Back', products_path %>
         </div>
       </div>
+
   </div>
 
 
