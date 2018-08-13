@@ -1,8 +1,8 @@
 require "rails_helper"
 describe Product do
   context "when the product has comments" do
-    let(:product) { Product.create!(name: "example mushroom", image_url: "https://static1.squarespace.com/static/5849c529d2b8574bec083c06/5849c55e414fb515730a1cf2/5849c6d5f7e0abea8fdf7359/1515024529125/slide_bg_2.jpg?format=1500w") }
-    let(:user) { User.create!(email: "handsampf@urban.de", password: "123456") }
+    product = FactoryBot.create(:product)
+    user = FactoryBot.create(:user)
     before do
       product.comments.create!(rating: 1, user: user, body: "Awful mushroom!")
       product.comments.create!(rating: 3, user: user, body: "Ok mushroom!")
