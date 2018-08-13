@@ -1,0 +1,10 @@
+<div class="content-box skew first-box">
+  <h1><%= @user.first_name + " " + @user.last_name %></h1>
+  <div class = "unskew">
+    <h6>Your Mail Address</h6>
+    <%= @user.email %>
+    <div class="box-section">
+      <%= link_to('Edit profile', edit_user_registration_path)%>
+    </div>
+  </div>
+</div>
