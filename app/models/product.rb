@@ -4,6 +4,9 @@ class Product < ApplicationRecord
   validates :image_url, url: true
   validates :name, presence: true
   
+  def price
+    "€ %.2f" % (self[:price]/100.0)
+  end
 
   def highest_rating_comment
     comments.rating_desc.first
