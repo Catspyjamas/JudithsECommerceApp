@@ -12,4 +12,10 @@ class UserMailer < ApplicationMailer
     @appname = "Mushrooming"
     mail(to: user.email, subject: "Let's go #{@appname}!")
   end
+
+  def order_confirmation(user, product)
+    @product = product
+    @appname = "Mushrooming"
+    mail(to: user.email, subject: "Order confirmation at the #{@appname} online shop")
+  end
 end

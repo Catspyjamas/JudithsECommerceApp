@@ -8,6 +8,10 @@ class Product < ApplicationRecord
     "€ %.2f" % (self[:price]/100.0)
   end
 
+  def price_orig
+    self[:price]
+  end
+
   def highest_rating_comment
     comments.rating_desc.first
   end

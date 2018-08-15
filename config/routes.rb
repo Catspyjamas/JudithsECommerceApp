@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :products do
     resources :comments
   end
+
+  post 'payments/create'
   
   resources :orders, only: [:index, :show, :create, :destroy]
   get 'simple_pages/about'
