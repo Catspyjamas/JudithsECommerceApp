@@ -1,7 +1,6 @@
 <div class="product-card">
     <%= image_tag(product.image_url, class: "img-fluid product-prev-img") %>
     <div class="card-content">
-    <% logger.debug "Product: #{product.name}"%>
       <h3 class="product-name"><%= link_to product.name, product_path(product), class:"product-link" %></h3>
       <p><%= product.description %></p>
       <p><%= product.toxicity %></p>
