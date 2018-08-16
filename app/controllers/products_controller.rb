@@ -5,9 +5,12 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
+    logger.debug "getting the search word and displaying corresponding items"
     if params[:q]
       search_term = params[:q]
+      logger.debug "Collected search term: #{search_term}"
       @products = Product.search(search_term)
+      logger.debug "Displaying corresponding items: #{@products}"
     else
       @products = Product.all
     end
@@ -17,6 +20,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    byebug
     @product = Product.find(params[:id])
     @comments = @product.comments.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
   end
