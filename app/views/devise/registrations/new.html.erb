@@ -1,11 +1,12 @@
 <div class="content-box skew first-box">
   <h1>Sign up</h1>
   <div class = "unskew">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {:class =>"user-form col-md-8", :honeypot => true}) do |f| %>
+
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {:class =>"user-form col-md-8"}) do |f| %>
       <%= devise_error_messages! %>
 
-
-
+      <%= f.invisible_captcha :subtitle %>
 
       <div class="form-row">
         <div class="form-group">

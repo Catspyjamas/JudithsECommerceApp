@@ -92,9 +92,10 @@ GEM
     ffi (1.9.25)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    honeypot-captcha (0.0.3)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
+    invisible_captcha (0.10.0)
+      rails (>= 3.2.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -245,7 +246,7 @@ DEPENDENCIES
   devise
   factory_bot_rails (~> 4.0)
   font-ionicons-rails!
-  honeypot-captcha
+  invisible_captcha
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
