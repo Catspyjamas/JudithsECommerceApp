@@ -1,6 +1,6 @@
   <div class="skew">
     <div class="unskew-image-box">
-      <%= image_tag(@product.image_url, class: "img-zoom", data: { zoom_image: @product.image_url}) %>
+      <%= image_tag(@product.image_url, class: "img-zoom", data: { zoom_image: "/assets/#{@product.image_url}"}) %>
     </div>
   </div>
   <div class="content-box skew">
