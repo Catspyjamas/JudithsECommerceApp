@@ -4,11 +4,11 @@ class Product < ApplicationRecord
   validates :image_url, url: true
   validates :name, presence: true
   
-  def price
+  def price_show
     "€ %.2f" % (self[:price]/100.0)
   end
 
-  def price_orig
+  def price
     self[:price]
   end
 
