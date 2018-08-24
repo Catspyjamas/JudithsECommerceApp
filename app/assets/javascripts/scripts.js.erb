@@ -14,9 +14,9 @@ function initRating() {
 
 function initRated() {
   $('.rated').raty({
-    starHalf: '<%= image_url("star-half.png") %>',
-    starOff: '<%= image_url("star-off.png") %>',
-    starOn: '<%= image_url("star-on.png") %>',
+    starHalf: '<%= asset_path 'star-half.png' %>',
+    starOff: '<%= asset_path 'star-off.png' %>',
+    starOn: '<%= asset_path 'star-on.png' %>',
     readOnly: true,
     score: function() {
       return $(this).attr('data-score');
@@ -24,7 +24,7 @@ function initRated() {
   });
 }
 
-$(document).on('turbolinks:load ajaxSuccess', function(){
+$(document).on('turbolinks:load ajax:success', function(){
   initRating();
   initRated();
   $('.img-zoom').elevateZoom();
