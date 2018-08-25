@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: %i(show index)
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :purge_redis_product_index, only: [:create, :update, :destroy]
 
   # GET /products
   # GET /products.json
@@ -12,7 +13,11 @@ class ProductsController < ApplicationController
       @products = Product.search(search_term)
       logger.debug "Displaying corresponding items: #{@products}"
     else
-      @products = Product.all
+      @products = $redis.get("product_index")
+      if @products == nil
+        @products = Product.all
+        $redis.set("product_index", @products)
+      end
     end
   end
 
@@ -78,6 +83,10 @@ class ProductsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
+    end
+
+    def purge_redis_product_index
+      $redis.del("product_index")
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
