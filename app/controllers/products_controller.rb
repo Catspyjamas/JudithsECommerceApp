@@ -16,7 +16,9 @@ class ProductsController < ApplicationController
       @products = $redis.get("product_index")
       if @products == nil
         @products = Product.all
-        $redis.set("product_index", @products)
+        $redis.set("product_index", Marshal.dump(@products))
+      else
+        @products = Marshal.load @products
       end
     end
   end
