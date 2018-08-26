@@ -1,93 +1,91 @@
 
-  <div class="skew">
-    <div class="unskew-image-box">
-      <img src= "<%= asset_path(@product.image_url) %>" data-zoom-image="<%=asset_path(@product.image_url) %>" class="img-zoom"/>
-    </div>
+<div class="skew">
+  <div class="unskew-image-box">
+    <img src= "<%= asset_path(@product.image_url) %>" data-zoom-image="<%=asset_path(@product.image_url) %>" class="img-zoom"/>
   </div>
-  <div class="content-box skew">
-    <h1>
-      <%= @product.name %>
-    </h1>
-    
-    <div class = "unskew">
-      <% if notice %>
-        <p id="notice" class="alert alert-primary"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p id="alert" class="alert alert-primary"><%= alert %></p>
-      <% end %>
+</div>
+<div class="content-box skew">
+  <h1>
+    <%= @product.name %>
+  </h1>
+  
+  <div class = "unskew">
+    <% if notice %>
+      <p id="notice" class="alert alert-primary"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p id="alert" class="alert alert-primary"><%= alert %></p>
+    <% end %>
 
-      <% cache @product do %>
-        <div class="product-content col-md-8">
-          <div id="product-description">
-            <p><%= @product.description %></p>
-            <div class="info-section">
-            <div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
-              <% if @comments %>
-                <h5>Average rating</h5>
-                <div id="average-rating" class="rated" data-score="<%= @product.average_rating %>"></div> 
-              <% end %>
-            </div>
-            <div class="info-section">
-              <h5>Our price</h5>
-              <strong><%= @product.price_show %></strong>
-            </div>
-
-          </div>
-
-
-          <div id="product-additional">
-            <h5>How toxic is this mushroom?</h5>
-            <%= @product.toxicity %>
-            <hr>
-            <%= form_with(url: '/payments/create') do |form| %>
-            <%= render partial: "devise/shared/stripe_checkout_button" %>
-            <% end %>
-            <hr>
-          </div>
-            
-          
-          <div id="product-reviews">
-            <%= render 'new_comment' %>
-            <hr>
-            <% if @comment && @comment.size >=2 %>
-              <h5>Comment with the highest rating</h5>
-              <h6><%=  @product.highest_rating_comment.user.first_name %> 
-                <small><em><%= "#{time_ago_in_words( @product.highest_rating_comment.created_at)} ago" %></em></small>
-              </h6>
-              <div class="rated" data-score="<%=  @product.highest_rating_comment.rating %>"></div>
-              <p>
-                <%=  @product.highest_rating_comment.body %>
-              </p>
-              <hr>
-              <h5>Comment with the lowest rating</h5>
-              <h6>
-                <%= @product.lowest_rating_comment.user.first_name %> 
-                <small><em><%= "#{time_ago_in_words( @product.lowest_rating_comment.created_at)} ago" %></em></small>
-              </h6>
-              <div class="rated" data-score="<%=  @product.lowest_rating_comment.rating %>"></div>
-              <p>
-                <%=  @product.lowest_rating_comment.body %>
-              </p>
-              <hr>
-            <% end %>
-            <h5>All comments</h5>
-            <div class="info-section">
-              <%= render 'comments' %>
-            </div>
-          </div>
-          <div>
-            <hr>
-            <%= link_to 'Edit', edit_product_path(@product) %>
-            <%= link_to 'Back', products_path %>
-          </div>
+    <div class="product-content col-md-8">
+      <div id="product-description" data-product-id="<%= @product.id %>">
+        <p><%= @product.description %></p>
+        <div class="info-section">
+        <div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
+          <% if @comments %>
+            <h5>Average rating</h5>
+            <div id="average-rating" class="rated" data-score="<%= @product.average_rating %>"></div> 
+          <% end %>
+        </div>
+        <div class="info-section">
+          <h5>Our price</h5>
+          <strong><%= @product.price_show %></strong>
         </div>
 
-    <% end %>
-  </div>
+      </div>
 
 
+      <div id="product-additional">
+        <h5>How toxic is this mushroom?</h5>
+        <%= @product.toxicity %>
+        <hr>
+        <%= form_with(url: '/payments/create') do |form| %>
+        <%= render partial: "devise/shared/stripe_checkout_button" %>
+        <% end %>
+        <hr>
+      </div>
+        
+      
+      <div id="product-reviews">
+        <%= render 'new_comment' %>
+        <hr>
+        <% if @comment && @comment.size >=2 %>
+          <h5>Comment with the highest rating</h5>
+          <h6><%=  @product.highest_rating_comment.user.first_name %> 
+            <small><em><%= "#{time_ago_in_words( @product.highest_rating_comment.created_at)} ago" %></em></small>
+          </h6>
+          <div class="rated" data-score="<%=  @product.highest_rating_comment.rating %>"></div>
+          <p>
+            <%=  @product.highest_rating_comment.body %>
+          </p>
+          <hr>
+          <h5>Comment with the lowest rating</h5>
+          <h6>
+            <%= @product.lowest_rating_comment.user.first_name %> 
+            <small><em><%= "#{time_ago_in_words( @product.lowest_rating_comment.created_at)} ago" %></em></small>
+          </h6>
+          <div class="rated" data-score="<%=  @product.lowest_rating_comment.rating %>"></div>
+          <p>
+            <%=  @product.lowest_rating_comment.body %>
+          </p>
+          <hr>
+        <% end %>
+        <h5>All comments</h5>
+        <div class="info-section" id="all-comments">
+          <%= render 'comments' %>
+        </div>
+      </div>
+      <div>
+        <hr>
+        <%= link_to 'Edit', edit_product_path(@product) %>
+        <%= link_to 'Back', products_path %>
+      </div>
+    </div>
 
   </div>
 </div>
+
+
+
+
 

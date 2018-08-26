@@ -11,7 +11,8 @@ class CommentsController < ApplicationController
         format.html { redirect_to product_path(@product, :anchor => "reviews"), notice: 'Review was created successfully.' }
         format.json { render :show, status: :created, location: @product }
         format.js
-        ActionCable.server.broadcast 'product_channel', comment: @comment, average_rating: @comment.product.average_rating
+#       ActionCable.server.broadcast 'product_channel', comment: @comment, average_rating: @comment.product.average_rating
+        ProductChannel.broadcast_to @product.id, comment: CommentsController.render(partial: 'comments/comment', locals: {comment: @comment, current_user: current_user}), average_rating: @product.average_rating        
         format.html { redirect_to @product, notice: 'Review was created successfully.' }
       else
         format.html { redirect_to @product, alert: 'Review could not be saved: Please provide your comment and a star rating.' }
