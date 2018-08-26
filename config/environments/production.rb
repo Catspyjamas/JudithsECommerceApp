@@ -115,5 +115,6 @@ Rails.application.configure do
     domain: 'heroku.com',
     enable_starttls_auto: true
   }
-
+  config.web_socket_server_url = "wss://mushrooming.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://mushrooming.herokuapp.com', 'http://mushrooming.herokuapp.com']
 end
