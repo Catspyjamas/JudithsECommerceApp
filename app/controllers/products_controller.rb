@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, except: %i(show index)
+  before_action :authorize_admin, except: %i(show index)
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :purge_redis_product_index, only: [:create, :update, :destroy]
 
@@ -94,5 +94,13 @@ class ProductsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:name, :description, :image_url, :toxicity, :price)
+    end
+
+    def authorize_admin
+      if current_user.blank?
+        redirect_to user_session_path, alert: 'You have to be logged in to do that.'
+      elsif !current_user.admin?
+        redirect_to root_path, alert: 'Sorry, only admins can do that.'
+      end
     end
 end

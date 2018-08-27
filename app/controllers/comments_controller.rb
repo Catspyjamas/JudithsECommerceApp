@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :authorize_admin, only: :destroy
 
   def create
     @product = Product.find(params[:product_id])
@@ -25,12 +26,18 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     product = @comment.product
     @comment.destroy
-    redirect_to product
+    redirect_to product, notice: 'Review was destroyed successfully.' 
   end
 
   private
 
   def comment_params
     params.require(:comment).permit(:user_id, :body, :rating)
+  end
+
+  def authorize_admin
+    if current_user.blank? || !current_user.admin?
+      redirect_to root_path, alert: 'Admins only!'
+    end
   end
 end

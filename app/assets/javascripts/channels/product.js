@@ -1,7 +1,7 @@
 
 
 
-$(document).on('turbolinks:load', function() {
+document.addEventListener("turbolinks:load", function() {
 
   App.product = App.cable.subscriptions.create("ProductChannel", {
     connected: function() {
